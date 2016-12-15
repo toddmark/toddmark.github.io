@@ -1,0 +1,25 @@
+{
+  "name": "toddmark",
+  "version": "1.0.0",
+  "description": "build a custiom blod ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toddmark/toddmark.git"
+  },
+  "author": "Todd Mark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toddmark/toddmark/issues"
+  },
+  "homepage": "https://github.com/toddmark/toddmark#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-template": "^5.5.0",
+    "webpack": "^1.14.0"
+  }
+}
