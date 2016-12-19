@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7c012dd8058661b338f6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "025e4cabf9599def7dd7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -570,7 +570,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/Users/ezbuy/workspace/toddmark/build";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -22457,4 +22457,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index-7c012dd8058661b338f6.js.map
+//# sourceMappingURL=index-025e4cabf9599def7dd7.js.map

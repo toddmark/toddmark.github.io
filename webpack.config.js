@@ -12,7 +12,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve('build'),
-    publicPath: isDev ? '/' : `${__dirname}/build`,
+    publicPath: isDev ? '/' : `./`,
     filename: '[name]-[hash].js'
   },
   // externals: {
