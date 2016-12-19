@@ -1,60 +1,36 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+let isDev = false;
+const env = process.env.NODE_ENV;
+isDev = env === 'development' ? true : false;
 module.exports = {
-  entry: './index.js',
+  entry: {
+    index: ['./assets/js/index.js']
+  },
+  devtool: 'source-map',
   output: {
-    path: './',
-    filename: 'index_bundle.js'
+    path: path.resolve('build'),
+    publicPath: isDev ? '/' : `${__dirname}/build`,
+    filename: '[name]-[hash].js'
   },
   module: {
+    loaders: [
+      {
+        test: /\.html$/,
+        loader: 'html'
+      },
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      }
+    ]
   },
   plugins:[
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      // Required
-      inject: false,
-      template: require('html-webpack-template'),
-      // template: 'node_modules/html-webpack-template/index.ejs',
-
-      // Optional
-      appMountId: 'test',
-      baseHref: 'http://example.com/awesome',
-      devServer: 'http://localhost:3001',
-      googleAnalytics: {
-        trackingId: 'UA-XXXX-XX',
-        pageViewOnLoad: true
-      },
-      meta: {
-        description: 'A better default template for html-webpack-plugin.'
-      },
-      mobile: true,
-      links: [
-        'https://fonts.googleapis.com/css?family=Roboto',
-        {
-          href: '/apple-touch-icon.png',
-          rel: 'apple-touch-icon',
-          sizes: '180x180'
-        },
-        {
-          href: '/favicon-32x32.png',
-          rel: 'icon',
-          sizes: '32x32',
-          type: 'image/png'
-        }
-      ],
-      inlineManifestWebpackName: 'webpackManifest',
-      scripts: [
-        'http://example.com/somescript.js',
-        {
-          src: '/myModule.js',
-          type: 'module'
-        }
-      ],
-      title: 'My App',
-      window: {
-        env: {
-          apiHost: 'http://myapi.com/api/v1'
-        }
-      }
+      template: 'template/index.html'
     })
   ]
 }
