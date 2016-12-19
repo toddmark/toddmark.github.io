@@ -15,15 +15,20 @@ module.exports = {
     publicPath: isDev ? '/' : `${__dirname}/build`,
     filename: '[name]-[hash].js'
   },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom':'ReactDOM',
+  // },
   module: {
-    loaders: [
-      {
+    loaders: [{
         test: /\.html$/,
         loader: 'html'
-      },
-      {
+      }, {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
+      }, {
+        test: /\.jsx?$/,
+        loaders: ['babel-loader?presets[]=es2015,presets[]=react']
       }
     ]
   },
