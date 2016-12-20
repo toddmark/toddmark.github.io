@@ -1,11 +1,16 @@
 const webpack = require('webpack');
 const config = require('./webpack.config.js');
-config.entry.index.unshift('webpack-dev-server/client?http://localhost:8000/', 'webpack/hot/dev-server');
+const port = 8000;
+config.entry.index.unshift(`webpack-dev-server/client?http://localhost:${port}/`, 'webpack/hot/dev-server');
 const WebpackDevServer = require('webpack-dev-server');
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
   hot: true,
-  stats: { colors: true }
+  stats: {
+    colors: true,
+    chunks: false
+ }
 })
 
-server.listen(8000);
+server.listen(port);
+console.log(`Listenting at http://localhost:${port}`);

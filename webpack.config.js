@@ -28,7 +28,8 @@ module.exports = {
         loader: "style-loader!css-loader!less-loader"
       }, {
         test: /\.jsx?$/,
-        loaders: ['babel-loader?presets[]=es2015,presets[]=react']
+        exclude: /node_modules/,
+        loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react']
       }
     ]
   },
