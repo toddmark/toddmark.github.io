@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5192b393fa7b7d13b16c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d3c8e31f0266023903eb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22493,7 +22493,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Todd Mark, Hello World'
+	        'Boot Strap'
 	      );
 	    }
 	  }]);
@@ -22983,4 +22983,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index-5192b393fa7b7d13b16c.js.map
+//# sourceMappingURL=index-d3c8e31f0266023903eb.js.map

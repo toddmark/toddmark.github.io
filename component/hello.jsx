@@ -6,7 +6,7 @@ class Hello extends Component{
 
   render() {
     return (
-      <div>Todd Mark, Hello World</div>
+      <div>Boot Strap</div>
     )
   }
 }
