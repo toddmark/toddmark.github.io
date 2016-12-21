@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf build && webpack",
-    "release": "git add . && git commit -m 'release version' && git push",
+    "release": "git add . && git commit -m '/****/release/****/' && git push",
     "dev": "cross-env NODE_ENV=development node dev-server.js"
   },
   "repository": {
