@@ -6,7 +6,11 @@ class Hello extends Component{
 
   render() {
     return (
-      <div>Boot Strap</div>
+      <div>Boot Strap
+        <p className="">
+          <img src={require('./witcher.jpeg')} alt=""/>
+        </p>
+      </div>
     )
   }
 }

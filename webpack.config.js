@@ -5,6 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 let isDev = false;
 const env = process.env.NODE_ENV;
 isDev = env === 'development' ? true : false;
+console.log(isDev ? '开发环境' : '生产环境');
 module.exports = {
   entry: {
     index: ['./assets/js/index.js']
@@ -30,13 +31,30 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react']
+      }, {
+        test: /.*\.(gif|png|jpe?g|svg)$/i,
+        loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
       }
     ]
   },
   plugins:[
     new HtmlWebpackPlugin({
       template: 'template/index.html'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ]
+    })
+  ].concat(
+    isDev ?
+    new webpack.HotModuleReplacementPlugin() :
+    [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      })
+    ]
+  )
 }
