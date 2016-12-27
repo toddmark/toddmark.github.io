@@ -1,4 +1,4 @@
-require('../assets/less/index.less')
+require('./hello.less')
 
 import React, {Component} from 'react';
 

@@ -8,7 +8,7 @@ isDev = env === 'development' ? true : false;
 console.log(isDev ? '开发环境' : '生产环境');
 module.exports = {
   entry: {
-    index: ['./assets/js/index.js']
+    index: ['./index.js']
   },
   devtool: 'source-map',
   output: {
