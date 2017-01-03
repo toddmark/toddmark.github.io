@@ -28,12 +28,19 @@ module.exports = {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
       }, {
+        test: /\.css$/, 
+        loader: "style-loader!css-loader" 
+      }, {
+        test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader" 
+      }, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react']
       }, {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
+      },{ 
+        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports?jQuery=jquery,$=jquery,this=>window' 
       }
     ]
   },

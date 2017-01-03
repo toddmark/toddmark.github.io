@@ -7,7 +7,7 @@ class Hello extends Component{
 
   render() {
     return (
-      <div>Boot Strap
+      <div>
         <Nav />
         <p className="">
           <img src={require('./witcher.jpeg')} alt=""/>
