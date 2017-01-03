@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf build && webpack",
-    "release": "git add . && git commit -m '\/**** release ****\/' && git push",
+    "release": "git add . && git commit -m '/**** release ****/' && git push",
     "dev": "cross-env NODE_ENV=development node dev-server.js"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }
