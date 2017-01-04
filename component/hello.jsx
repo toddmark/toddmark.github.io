@@ -9,9 +9,6 @@ class Hello extends Component{
     return (
       <div>
         <Nav />
-        <p className="">
-          <img src={require('./witcher.jpeg')} alt=""/>
-        </p>
       </div>
     )
   }

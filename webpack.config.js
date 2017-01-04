@@ -8,6 +8,7 @@ isDev = env === 'development' ? true : false;
 console.log(isDev ? '开发环境' : '生产环境');
 module.exports = {
   entry: {
+    vendor: ['jquery', 'bootstrap'],
     index: ['./index.js']
   },
   devtool: 'source-map',
@@ -28,10 +29,10 @@ module.exports = {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
       }, {
-        test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
       }, {
-        test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader" 
+        test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader"
       }, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -39,12 +40,13 @@ module.exports = {
       }, {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
-      },{ 
-        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports?jQuery=jquery,$=jquery,this=>window' 
+      },{
+        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports?jQuery=jquery,$=jquery,this=>window'
       }
     ]
   },
   plugins:[
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     new HtmlWebpackPlugin({
       template: 'template/index.html'
     })
