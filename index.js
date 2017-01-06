@@ -8,7 +8,7 @@ import Hello from './component/hello.jsx';
 
 ReactDOM.render((
   <Router history={hashHistory}>
-    <Route path="/test" component={Hello} />
+    <Route path="/" component={Hello} />
   </Router>
   ), document.getElementById('app')
 );
