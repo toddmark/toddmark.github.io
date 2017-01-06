@@ -38,7 +38,7 @@ export default class Nav extends Component{
                 <div className="form-group">
                   <input type="text" className="form-control" placeholder="Search" />
                 </div>
-                <button type="submit" className="btn btn-default">Submit</button>
+                <button type="submit" className="btn btn-default">Submit Button</button>
               </form>
               <ul className="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
