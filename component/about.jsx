@@ -1,14 +1,15 @@
-require('./hello.less')
-
 import React, {Component} from 'react';
 import Nav from './navbar/index.jsx';
 
-export default class Hello extends Component{
+export default class About extends Component{
 
   render() {
     return (
       <div>
         <Nav />
+        <div>
+          About Me
+        </div>
       </div>
     )
   }
