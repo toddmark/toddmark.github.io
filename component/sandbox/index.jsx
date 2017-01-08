@@ -7,7 +7,6 @@ import BinaryTree from './binaryTree.jsx';
 export default class Sandbox extends Component{
 
   render() {
-    console.log(this.props.children)
     return (
       <div>
         <Nav />
