@@ -1,8 +1,11 @@
+require('./binaryTree.less');
+
 import React, {Component} from 'react';
 import Nav from '../navbar/index.jsx';
 
 import * as d3 from "d3";
 import rd3 from 'react-d3-library';
+
 
 
 
@@ -81,9 +84,10 @@ function highlightParents(d) {
 }
 
 function create() {
+  const width = window.screen.width;
   d3.select(node).append('svg')
     .attr('height', 650)
-    .attr('width', 960)
+    .attr('width', width)
     .selectAll('line')
     .data(branches)
     .enter()
@@ -114,9 +118,7 @@ regenerate(true);
 d3.select(node).select('svg').on('click', regenerate);
 
 export default class BinaryTree extends Component{
-  //  getInitialState: function() {
-  //   return {d3: ''}
-  // },
+
   constructor(props) {
     super(props);
     this.state = {
@@ -125,6 +127,7 @@ export default class BinaryTree extends Component{
   }
 
   componentDidMount() {
+    console.log(node);
     this.setState({d3: node});
   }
 
