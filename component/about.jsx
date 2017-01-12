@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Nav from './navbar/index.jsx';
+import Nav from './navbar';
 
 export default class About extends Component{
 

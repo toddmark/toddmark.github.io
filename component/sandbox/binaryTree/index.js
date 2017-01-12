@@ -1,13 +1,10 @@
-require('./binaryTree.less');
-
 import React, {Component} from 'react';
-import Nav from '../navbar/index.jsx';
+import Nav from '../../navbar';
 
 import * as d3 from "d3";
 import rd3 from 'react-d3-library';
 
-
-
+import './binaryTree.less'
 
 var node = document.createElement('div');
 
@@ -45,10 +42,10 @@ function branch(b) {
   daR = ar * Math.random() - ar * 0.5;
   newB = {
     i: branches.length,
-    x: end.x, 
-    y: end.y, 
-    a: b.a + da + daR, 
-    l: b.l * dl, 
+    x: end.x,
+    y: end.y,
+    a: b.a + da + daR,
+    l: b.l * dl,
     d: b.d + 1,
     parent: b.i
   };
@@ -80,7 +77,7 @@ function highlightParents(d) {
   for(var i = 0; i <= depth; i++) {
     d3.select('#id-'+parseInt(d.i)).style('stroke', colour);
     d = branches[d.parent];
-  } 
+  }
 }
 
 function create() {
