@@ -13,11 +13,16 @@ export default class BinaryTree extends Component{
       d3: '',
       distance: 0
     }
+    this.timer = null;
   }
 
   componentDidMount() {
     this.setState({d3: node});
     this.progressAnimate();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   progressAnimate() {
@@ -26,9 +31,9 @@ export default class BinaryTree extends Component{
     const step = 500;
     const self = this;
     let distance = 0;
-    const timer = setInterval(function() {
+    this.timer = setInterval(function() {
       distance += 10;
-      if (distance >= 100) {
+      if (distance > 100) {
         console.log(distance)
         regenerate();
         distance = 0;
@@ -46,7 +51,7 @@ export default class BinaryTree extends Component{
       <div>
         <div className="progress">
           <div className="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{width: `${this.state.distance}%`}}>
-            {this.state.distance}% Complete
+            {this.state.distance}%
           </div>
         </div>
         <RD3Component data={this.state.d3} />
