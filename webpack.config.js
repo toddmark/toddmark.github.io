@@ -33,6 +33,9 @@ module.exports = {
         loader: "style-loader!css-loader"
       }, {
         test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader"
+      },{
+        test: /\.js$/,
+        loader: 'imports?define=>false'
       }, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
