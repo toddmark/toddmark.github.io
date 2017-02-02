@@ -2,6 +2,7 @@ require('./hello.less')
 
 import {TweenMax,TimelineLite, TimelineMax} from 'gsap'
 import ScrollMagic from 'scrollmagic'
+import IScroll from 'iscroll'
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
 
 import React, {Component} from 'react';
@@ -15,6 +16,7 @@ export default class Hello extends Component{
   }
 
   componentDidMount() {
+    new IScroll('#wrapper')
     var controller = new ScrollMagic.Controller();
     // create a scene
     const spanArray = document.getElementById('stick').getElementsByTagName('span');
@@ -32,7 +34,7 @@ export default class Hello extends Component{
 
   render() {
     return (
-      <div style={{height: 2000}}>
+      <div id="wrapper" style={{height: 2000}}>
         <Nav />
         <h5 style={{padding: 10, color: '#ccc'}}>please scroll down to the bottom page.</h5>
         <h3 id="stick" style={{padding: 10}}>{this.title.split('').map((item, key)=>{
