@@ -20,8 +20,7 @@ export default class About extends Component{
         <div className="jumbotron">
           <h1 className="text-danger">新年快乐!</h1>
           <p className="bg-primary">
-            这是一个我们共同组建的空间，记录生活，发掘话题以及搞事情等。当然都是原创，技术和素材取决于我们的生活。灵感来源于爱，规划在于未来。
-            暂时想到这么多……有啥写啥
+            没啥特别想说的，一般没想好先去做了……
           </p>
         </div>
         <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
