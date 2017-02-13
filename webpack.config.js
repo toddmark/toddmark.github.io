@@ -55,7 +55,9 @@ module.exports = {
     })
   ].concat(
     isDev ?
+    // 开发环境
     new webpack.HotModuleReplacementPlugin() :
+    // 生产环境
     [
       new webpack.optimize.UglifyJsPlugin({
         compress: {

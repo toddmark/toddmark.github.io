@@ -11,7 +11,7 @@ export default class Hello extends Component{
 
   constructor(props) {
     super(props);
-    this.title = 'Hi, welcome Lily & Todd Mark\'s honey home.';
+    this.title = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eos, expedita? Eos deleniti illum suscipit quam excepturi non recusandae a!';
   }
 
   componentDidMount() {
