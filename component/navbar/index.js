@@ -16,14 +16,15 @@ export default class Nav extends Component{
                 <span className="icon-bar"></span>
               </button>
               <div className="navbar-brand">
-                <img style={{width: 20}} src={require('../witcher.jpeg')} alt=""/>
+                <img style={{width: 20}} src={require('../img/witcher.jpeg')} alt=""/>
               </div>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li className="active"><Link to="/">Home</Link></li>
-                <li className=""><Link to="/about">About</Link></li>
+                <li className="active">
+                  <Link to="/">Home</Link>
+                </li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sandbox <span className="caret"></span></a>
                   <ul className="dropdown-menu" role="menu">
@@ -33,6 +34,17 @@ export default class Nav extends Component{
                     <li><a href="#">Separated link</a></li>
                     <li className="divider"></li>
                     <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li className="">
+                  <Link to="/about">About</Link>
+                </li>
+                <li className="dropdown">
+                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">d3.js Demo <span className="caret"></span></a>
+                  <ul className="dropdown-menu" role="menu">
+                    <li>
+                      <a href="/d3.html">Home</a>
+                    </li>
                   </ul>
                 </li>
               </ul>

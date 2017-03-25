@@ -6,10 +6,37 @@ let isDev = false;
 const env = process.env.NODE_ENV;
 isDev = env === 'development' ? true : false;
 console.log(isDev ? '开发环境' : '生产环境');
+const htmlsMap = [
+  {
+    template: 'index',
+    chunks: ['vendor', 'index']
+  },
+  {
+    template: 'd3',
+    chunks: ['vendor', 'd3']
+  }
+]
+
+const htmlFiles = (function() {
+  let result = []
+  htmlsMap.map((item) => {
+    result.push(
+      new HtmlWebpackPlugin({
+        template: `./template/${item.template}.html`,
+        chunks: item.chunks,
+        filename: `${item.template}.html`
+      })
+     )
+  })
+  return result
+}())
+
+const commonJS = ['jquery', 'bootstrap']
 module.exports = {
   entry: {
-    vendor: ['jquery', 'bootstrap'],
-    index: ['./index.js']
+    vendor: commonJS,
+    index: [ './template/index.js'],
+    d3: ['./template/d3.js']
   },
   devtool: 'source-map',
   output: {
@@ -24,7 +51,7 @@ module.exports = {
   module: {
     loaders: [{
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html-loader'
       }, {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
@@ -35,25 +62,23 @@ module.exports = {
         test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader"
       },{
         test: /\.js$/,
-        loader: 'imports?define=>false'
+        loader: 'imports-loader?define=>false'
       }, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react']
+        loaders: ['react-hot-loader', 'babel-loader?presets[]=es2015,presets[]=react']
       }, {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
       },{
-        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports?jQuery=jquery,$=jquery,this=>window'
+        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports-loader?jQuery=jquery,$=jquery,this=>window'
       }
     ]
   },
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new HtmlWebpackPlugin({
-      template: 'template/index.html'
-    })
-  ].concat(
+    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"})
+  ].concat( htmlFiles)
+  .concat(
     isDev ?
     // 开发环境
     new webpack.HotModuleReplacementPlugin() :
