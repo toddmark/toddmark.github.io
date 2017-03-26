@@ -46,7 +46,7 @@ export default class BinaryTree extends Component{
   }
 
   render() {
-    let RD3Component = rd3.Component;
+    const RD3Component = rd3.Component;
     return (
       <div>
         <div className="progress">

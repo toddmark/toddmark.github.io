@@ -36,7 +36,7 @@ module.exports = {
   entry: {
     vendor: commonJS,
     index: ['react-hot-loader/patch','./template/index.js'],
-    d3: ['./template/d3.js']
+    d3: ['react-hot-loader/patch','./template/d3.js']
   },
   devtool: 'source-map',
   output: {
@@ -49,7 +49,7 @@ module.exports = {
   //   'react-dom':'ReactDOM',
   // },
   module: {
-    loaders: [{
+    rules: [{
         test: /\.html$/,
         loader: 'html-loader'
       }, {

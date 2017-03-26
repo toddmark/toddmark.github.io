@@ -1,10 +1,16 @@
 const webpack = require('webpack');
 const config = require('./webpack.config.js');
 const port = 8001
-config.entry.index.unshift(
-  `webpack-dev-server/client?http://localhost:${port}/`, 
-  'webpack/hot/dev-server'
-  );
+
+// Add hot js for each webpack config entry
+Object.keys(config.entry).map((item) => {
+  if (item !== 'vendor') {
+    config.entry[item].unshift(
+      `webpack-dev-server/client?http://localhost:${port}/`, 
+      'webpack/hot/dev-server'
+    )
+  }
+})
 const WebpackDevServer = require('webpack-dev-server');
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
