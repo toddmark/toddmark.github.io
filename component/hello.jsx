@@ -12,6 +12,9 @@ export default class Hello extends Component{
   constructor(props) {
     super(props);
     this.title = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eos, expedita? Eos deleniti illum suscipit quam excepturi non recusandae a!';
+    this.state = {
+      text: ''
+    }
   }
 
   componentDidMount() {
@@ -34,6 +37,7 @@ export default class Hello extends Component{
   render() {
     return (
       <div id="wrapper" style={{height: 2000}}>
+        <hr/>
         <Nav />
         <h5 style={{padding: 10, color: '#ccc'}}>please scroll down to the bottom page.</h5>
         <h3 id="stick" style={{padding: 10}}>{this.title.split('').map((item, key)=>{

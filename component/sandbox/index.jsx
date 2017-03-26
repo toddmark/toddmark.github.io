@@ -4,7 +4,7 @@ import { Router, Route, Link, hashHistory } from 'react-router'
 import Nav from '../navbar';
 import BinaryTree from './binaryTree';
 
-export default class Sandbox extends Component{
+class Sandbox extends Component{
 
   render() {
     return (
@@ -15,3 +15,6 @@ export default class Sandbox extends Component{
     )
   }
 }
+
+
+export default Sandbox

@@ -35,7 +35,7 @@ const commonJS = ['jquery', 'bootstrap']
 module.exports = {
   entry: {
     vendor: commonJS,
-    index: [ './template/index.js'],
+    index: ['react-hot-loader/patch','./template/index.js'],
     d3: ['./template/d3.js']
   },
   devtool: 'source-map',
@@ -66,7 +66,7 @@ module.exports = {
       }, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot-loader', 'babel-loader?presets[]=es2015,presets[]=react']
+        loaders: ['babel-loader']
       }, {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
@@ -81,7 +81,11 @@ module.exports = {
   .concat(
     isDev ?
     // 开发环境
-    new webpack.HotModuleReplacementPlugin() :
+    [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin()
+    ]
+     :
     // 生产环境
     [
       new webpack.optimize.UglifyJsPlugin({
