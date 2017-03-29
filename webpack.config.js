@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 let isDev = false;
 const env = process.env.NODE_ENV;
 isDev = env === 'development' ? true : false;
@@ -35,8 +34,8 @@ const commonJS = ['jquery', 'bootstrap']
 module.exports = {
   entry: {
     vendor: commonJS,
-    index: ['react-hot-loader/patch','./template/index.js'],
-    d3: ['react-hot-loader/patch','./template/d3.js']
+    index: ['./template/index.js'],
+    d3: ['./template/d3.js']
   },
   devtool: 'source-map',
   output: {

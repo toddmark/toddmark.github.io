@@ -1,18 +1,24 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router'
+import { AppContainer } from 'react-hot-loader'
 
-import Minecraft from '../component/d3/mincraft'
+import RootContainer from '../component/d3'
 
 
-ReactDOM.render((
-  <Router history={hashHistory}>
-    <Route path='/' component={Minecraft} >
-      <IndexRoute component={Minecraft}/>
-    </Route>
-  </Router>
-  ), document.getElementById('app')
-);
+const render = (Component) => {
+  ReactDOM.render((
+    <AppContainer>
+      <RootContainer />
+    </AppContainer>
+    ), document.getElementById('app')
+  );
+}
+
+render(RootContainer);
+
+// if (module.hot) {
+//   module.hot.accept('../component/d3', () => {
+//     render(RootContainer);
+//   })
+// }
 

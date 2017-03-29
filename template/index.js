@@ -1,3 +1,4 @@
+import { AppContainer } from 'react-hot-loader';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React from 'react';
@@ -8,8 +9,6 @@ import Hello from '../component/hello.jsx';
 import About from '../component/about.jsx';
 import Sandbox from '../component/sandbox/index.jsx';
 import BinaryTree from '../component/sandbox/binaryTree';
-
-
 
 ReactDOM.render((
   <Router history={hashHistory}>
