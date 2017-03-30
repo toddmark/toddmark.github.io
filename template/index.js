@@ -15,7 +15,9 @@ const render = (Component) => {
 
 render(RootContainer);
 
-module.hot.accept('../router/index.js', () => {
-  render(RootContainer);
-})
+if (module.hot) {
+  module.hot.accept('../router/index.js', () => {
+    render(RootContainer);
+  })
+}
 
