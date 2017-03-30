@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader';
 
-import RootContainer from '../component/d3'
-
+import RootContainer from '../router/d3.js'
 
 const render = (Component) => {
   ReactDOM.render((
     <AppContainer>
-      <RootContainer />
+      <Component />
     </AppContainer>
     ), document.getElementById('app')
   );
@@ -16,9 +15,6 @@ const render = (Component) => {
 
 render(RootContainer);
 
-// if (module.hot) {
-//   module.hot.accept('../component/d3', () => {
-//     render(RootContainer);
-//   })
-// }
-
+module.hot.accept('../router/d3.js', () => {
+  render(RootContainer);
+})

@@ -4,19 +4,17 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router'
 
-import Minecraft from './mincraft'
+import Minecraft from '../component/d3/mincraft'
 
-const routes = {
-  path: '/',
-  component: Minecraft
-}
 
-const D3 = () => {
-  return (
-    <div>
-      <Router history={hashHistory} routes={routes} />
-    </div>
-  )
+class D3 extends Component{
+  render() {
+    return (
+      <Router history={hashHistory} >
+        <Route path="/" component={Minecraft}></Route>
+      </Router>
+    )
+  }
 }
 
 export default D3;

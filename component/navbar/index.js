@@ -6,7 +6,7 @@ export default class Nav extends Component{
   render() {
     return(
       <div>
-        <nav className="navbar navbar-default" role="navigation">
+        <nav style={{zIndex: 9}} className="navbar navbar-default" role="navigation">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

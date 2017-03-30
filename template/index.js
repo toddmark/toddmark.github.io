@@ -1,22 +1,21 @@
-import { AppContainer } from 'react-hot-loader';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, hashHistory } from 'react-router'
+import { AppContainer } from 'react-hot-loader';
 
-import Hello from '../component/hello.jsx';
-import About from '../component/about.jsx';
-import Sandbox from '../component/sandbox/index.jsx';
-import BinaryTree from '../component/sandbox/binaryTree';
+import RootContainer from '../router/index.js';
 
-ReactDOM.render((
-  <Router history={hashHistory}>
-    <Route path="/" component={Hello} />
-    <Route path="/about" component={About}></Route>
-    <Route path="/sandbox" component={Sandbox}>
-      <Route path="binaryTree" component={BinaryTree}/>
-    </Route>
-  </Router>
-  ), document.getElementById('app')
-);
+const render = (Component) => {
+  ReactDOM.render((
+    <AppContainer>
+      <Component />
+    </AppContainer>
+    ), document.getElementById('app')
+  );
+}
+
+render(RootContainer);
+
+module.hot.accept('../router/index.js', () => {
+  render(RootContainer);
+})
+

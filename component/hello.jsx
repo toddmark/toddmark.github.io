@@ -10,10 +10,10 @@ import Nav from './navbar';
 export default class Hello extends Component{
 
   constructor(props) {
-    super(props);
-    this.title =  'webpack hot'
+    super(props)
+    this.title =  '123'
     this.state = {
-      text: ''
+      text: 'It\'s funny'
     }
   }
 
@@ -38,6 +38,7 @@ export default class Hello extends Component{
     return (
       <div id="wrapper" style={{height: 2000}}>
         <Nav />
+        <h1>{this.state.text}</h1>
         <h5 style={{padding: 10, color: '#ccc'}}>please scroll down to the bottom page.</h5>
         <h3 id="stick" style={{padding: 10}}>{this.title.split('').map((item, key)=>{
           item = item === ' ' ? '\u00A0' : item;

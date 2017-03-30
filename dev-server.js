@@ -6,7 +6,7 @@ const port = 8001
 Object.keys(config.entry).map((item) => {
   if (item !== 'vendor') {
     config.entry[item].unshift(
-      'react-hot-loader/patch',
+      // 'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${port}/`, 
       'webpack/hot/dev-server'
     )
@@ -16,7 +16,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
   hot: true,
-  stats: {
+  stats: { 
     colors: true,
     chunks: false
  }
