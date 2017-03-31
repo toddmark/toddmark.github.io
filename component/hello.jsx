@@ -11,7 +11,7 @@ export default class Hello extends Component{
 
   constructor(props) {
     super(props)
-    this.title =  '123'
+    this.title =  '12'
     this.state = {
       text: 'It\'s funny'
     }
