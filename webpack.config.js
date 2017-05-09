@@ -37,7 +37,7 @@ module.exports = {
     index: ['./template/index.js'],
     d3: ['./template/d3.js']
   },
-  devtool: 'cheap-module-eval-source-mapp',
+  devtool: 'source-map',
   output: {
     path: path.resolve('build'),
     publicPath: isDev ? '/' : `./`,
