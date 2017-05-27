@@ -35,7 +35,7 @@ class Sandbox extends Component{
 
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Nav />
         {this.props.children || "Welcome to your Sandbox"}
         <div style={{marginTop: 10}} className="form-inline row">

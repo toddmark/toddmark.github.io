@@ -1,23 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Router, Route, browserHistory } from 'react-router';
 
-import RootContainer from '../router/index.js';
+import routes from '../router/index.js';
 
-const render = (Component) => {
+const render = () => {
   ReactDOM.render((
     <AppContainer>
-      <Component />
+      <Router history={browserHistory} routes={routes} />
     </AppContainer>
     ), document.getElementById('app')
   );
 }
 
-render(RootContainer);
+render();
 
 if (module.hot) {
   module.hot.accept('../router/index.js', () => {
-    render(RootContainer);
+    render();
   })
 }
 
