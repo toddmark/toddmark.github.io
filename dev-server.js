@@ -16,6 +16,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
   hot: true,
+  publicPath: '/',
   stats: { 
     colors: true,
     chunks: false

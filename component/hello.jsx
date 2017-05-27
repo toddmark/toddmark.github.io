@@ -11,9 +11,9 @@ export default class Hello extends Component{
 
   constructor(props) {
     super(props)
-    this.title =  'Todd Mark'
     this.state = {
-      text: 'something is happened.'
+      text: 'editor',
+      title: 'what you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.'
     }
   }
 
@@ -23,8 +23,8 @@ export default class Hello extends Component{
     // create a scene
     const spanArray = document.getElementById('stick').getElementsByTagName('span');
     var laola = new TimelineMax()
-      .add(TweenMax.staggerTo(spanArray, 0.25, {y: -20, x: -15, scale: 1.2, color: '#ff4468' }, 0.1))
-      .add(TweenMax.staggerTo(spanArray, 0.25, {y: 0, x: 0, scale: 1, color: '#ff4468'}, 0.1), 0.25);
+      .add(TweenMax.staggerTo(spanArray, 0.25, {y: -20, x: -15, scale: 1.2, color: '#667' }, 0.1))
+      .add(TweenMax.staggerTo(spanArray, 0.25, {y: 0, x: 0, scale: 1, color: '#667'}, 0.1), 0.25);
     new ScrollMagic.Scene({
         duration: 1000,  // the scene should last for a scroll distance of 100px
       })
@@ -40,7 +40,7 @@ export default class Hello extends Component{
         <Nav />
         <h1>{this.state.text}</h1>
         <h5 style={{padding: 10, color: '#ccc'}}>please scroll down to the bottom page.</h5>
-        <h3 id="stick" style={{padding: 10}}>{this.title.split('').map((item, key)=>{
+        <h3 id="stick" style={{padding: 10}}>{this.state.title.split('').map((item, key)=>{
           item = item === ' ' ? '\u00A0' : item;
           return (<span style={{display: 'inline-block'}} key={key}>{item}</span>);
         })}</h3>
