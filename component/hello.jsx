@@ -13,7 +13,7 @@ export default class Hello extends Component{
     super(props)
     this.state = {
       text: 'editor',
-      title: 'what you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.'
+      title: 'whx you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.'
     }
   }
 

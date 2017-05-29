@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 
 import Minecraft from '../component/d3/mincraft'
 
-export const D3 = [{
-  path: '/',
+const D3 = [{
+  path: '/d3.html',
   component: Minecraft
 }]
 
-
+export default D3

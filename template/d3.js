@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Router, Route, browserHistory } from 'react-router';
 
-import RootContainer from '../router/d3.js'
+// import routes from '../router/d3.js'
 
 const render = () => {
+  const routes = require('../router/d3').default
+  console.log(routes)
   ReactDOM.render((
     <AppContainer>
       <Router history={browserHistory} routes={routes} />
