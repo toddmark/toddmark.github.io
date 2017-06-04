@@ -18,11 +18,9 @@ export default class About extends Component{
       <div>
         <Nav />
         <div className="jumbotron">
-          <h1 className="text-danger">新年快乐!</h1>
+          <h1 className="text-danger"></h1>
           <p className="bg-primary">
-            666 strange
-            为什么首页的hot loader不可以使用，我很纠结。 没啥特别想说的，一般没想好先去做了……
-            weiwei test
+            ha sikei
           </p>
         </div>
         <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">

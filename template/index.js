@@ -4,20 +4,21 @@ import { AppContainer } from 'react-hot-loader';
 
 import RootContainer from '../router/index.js';
 
-const render = (Component) => {
+const render = () => {
   ReactDOM.render((
     <AppContainer>
-      <Component />
+      <RootContainer />
     </AppContainer>
     ), document.getElementById('app')
   );
 }
 
-render(RootContainer);
+render();
 
 if (module.hot) {
-  module.hot.accept('../router/index.js', () => {
-    render(RootContainer);
+  const index = require('../router/index').default
+  module.hot.accept(index, () => {
+    render();
   })
 }
 

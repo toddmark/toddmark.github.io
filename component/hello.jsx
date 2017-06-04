@@ -12,8 +12,8 @@ export default class Hello extends Component{
   constructor(props) {
     super(props)
     this.state = {
-      text: '',
-      title: 'whx you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.'
+      text: 'This is test page.',
+      title: 'what you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.'
     }
   }
 
@@ -40,6 +40,7 @@ export default class Hello extends Component{
         <Nav />
         <h1>{this.state.text}</h1>
         <h5 style={{padding: 10, color: '#ccc'}}>please scroll down to the bottom page.</h5>
+        <p style={{fontSize: 80}}>some paragraph.</p>
         <h3 id="stick" style={{padding: 10}}>{this.state.title.split('').map((item, key)=>{
           item = item === ' ' ? '\u00A0' : item;
           return (<span style={{display: 'inline-block'}} key={key}>{item}</span>);

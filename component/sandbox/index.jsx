@@ -9,65 +9,72 @@ class Sandbox extends Component{
   constructor(props) {
     super(props)
     this.state = {
-      result: []
+      array: [],
+      resultArray: [],
+      log: []
     }
-    this.calc = this.calc.bind(this);
+    this.bubbleSort  = this.bubbleSort.bind(this)
+    this.generate = this.generate.bind(this)
   }
 
-  calc() {
+  generate() {
+    let array = [1,1,1,1,1,1,1,1,1,1,1].map(()=>{return parseInt(Math.random() * 100)})
     this.setState({
-      result: []
-    }, ()=> {
-      let count = 0;
-      let result = this.state.result;
-      for (let i = this.state.from; i <= this.state.to; i += this.state.step) {
-        console.log(i)
-        let itemResult = {} 
-        itemResult.count = count++;
-        itemResult.item = i;      
-        result.push(itemResult)
-      }
-      this.setState({
-        result: result
-      })
+      array: array
     })
   }
 
+  bubbleSort() {
+    let targetArray = this.state.array.slice()
+    let log = []
+    let count = 0;
+    for (let i = 0; i < targetArray.length; i++) {
+      for (let j = i + 1; j < targetArray.length; j++) {
+        if (targetArray[i] > targetArray[j]) {
+          count++
+          let temp = ''
+          temp = targetArray[i]
+          targetArray[i] = targetArray[j]
+          targetArray[j] = temp
+          log.push(`第${count}次交换, 把第${i}位的${targetArray[j]}与第${j}位的${targetArray[i]}互换, 互换后的新数组为${targetArray}`)
+          this.setState({
+            log: log
+          })
+        }
+      }
+    }
+    this.setState({
+      resultArray: targetArray 
+    })
+  }
+
+
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Nav />
-        {this.props.children || "Welcome to your Sandbox"}
-        <div style={{marginTop: 10}} className="form-inline row">
-          <div className="form-group col-xs-4">
-            <label htmlFor="from">From: </label>
-            <input id="from" type="text" className="form-control" onChange={(e) => {
-              this.setState({
-                from: Number(e.target.value)
-              })
-            }}/>
-          </div>
-          <div className="form-group col-xs-4">
-            <label htmlFor="to">To: </label>
-            <input id="to" type="text" className="form-control" onChange={(e) =>{
-              this.setState({
-                to: Number(e.target.value)
-              })
-            }}/>
-          </div>
-          <div className="form-group col-xs-4">
-            <label htmlFor="step">Step: </label>
-            <input id="step" type="text" className="form-control" onChange={(e) => {
-              this.setState({
-                step: Number(e.target.value)
-              })
-            }}/>
+        <h4>  
+          {this.props.children || "Welcome to your Sandbox"}
+        </h4>
+        <div className="panel panel-primary">
+          <div className="panel-heading">Before sort:</div>
+          <div className="panel-body">
+            {this.state.array.join(',')}
           </div>
         </div>
-        <button style={{marginTop: 10}} className="btn btn-primary" onClick={this.calc}>Confirm</button>
-        <div style={{marginTop: 10}}>{this.state.result.map((item,index)=> {
-          return (<p key={index} className="text-primary">第{index+1}次计算： i 的值是{item.item}</p>)
-          })}</div>
+        <div className="button-group" style={{marginBottom: 20}}>
+          <button onClick={this.generate} className="btn btn-primary">generate</button>
+          <button onClick={this.bubbleSort}  className="btn btn-primary">Sort</button>
+        </div>
+        <div className="panel panel-success">
+          <div className="panel-heading">After sort:</div>
+          <div className="panel-body">
+            {this.state.resultArray.join(',')}
+          </div>
+        </div>
+        {this.state.log.map((item)=> {
+          return <p>{item}</p>
+        })}
       </div>
     )
   }
