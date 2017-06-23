@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 import Particles from 'react-particles-js'
 
+import { Link } from 'react-router'
+
+import './index.less'
+
 export default class Index extends Component {
   render() {
     const particlesProps = {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 400,
           "density": {
             "enable": true,
             "value_area": 800
           }
         },
         "color": {
-          "value": "#ff4040"
+          "value": "#fff"
         },
         "shape": {
-          "type": "circle",
+          "type": "star",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -32,7 +36,7 @@ export default class Index extends Component {
         },
         "opacity": {
           "value": 0.5,
-          "random": false,
+          "random": true,
           "anim": {
             "enable": false,
             "speed": 1,
@@ -45,22 +49,22 @@ export default class Index extends Component {
           "random": true,
           "anim": {
             "enable": false,
-            "speed": 80,
+            "speed": 40,
             "size_min": 0.1,
             "sync": false
           }
         },
         "line_linked": {
-          "enable": true,
-          "distance": 300,
-          "color": "#ccc",
+          "enable": false,
+          "distance": 500,
+          "color": "#ffffff",
           "opacity": 0.4,
           "width": 2
         },
         "move": {
           "enable": true,
-          "speed": 12,
-          "direction": "none",
+          "speed": 6,
+          "direction": "top",
           "random": false,
           "straight": false,
           "out_mode": "out",
@@ -76,31 +80,31 @@ export default class Index extends Component {
         "detect_on": "canvas",
         "events": {
           "onhover": {
-            "enable": false,
-            "mode": "repulse"
+            "enable": true,
+            "mode": "bubble"
           },
           "onclick": {
             "enable": true,
-            "mode": "push"
+            "mode": "repulse"
           },
           "resize": true
         },
         "modes": {
           "grab": {
-            "distance": 800,
+            "distance": 400,
             "line_linked": {
-              "opacity": 1
+              "opacity": 0.5
             }
           },
           "bubble": {
-            "distance": 800,
-            "size": 80,
-            "duration": 2,
-            "opacity": 0.8,
+            "distance": 400,
+            "size": 4,
+            "duration": 0.3,
+            "opacity": 1,
             "speed": 3
           },
           "repulse": {
-            "distance": 400,
+            "distance": 200,
             "duration": 0.4
           },
           "push": {
@@ -115,11 +119,20 @@ export default class Index extends Component {
     }
     return (
       <div>
-        <Particles
-          width='100%'
-          height='100%'
-          params={particlesProps}
-        />
+        <div className="btn btn-default btn-block">
+          <a href="/blog">博客</a>
+        </div>
+        <div className="btn btn-default btn-block">
+          <Link to="/hello">网站</Link>
+        </div>
+        <div className="animation">
+          <Particles
+            className="animation"
+            width='100%'
+            height='100%'
+            params={particlesProps}
+          />
+        </div>
       </div>
     )
   }
