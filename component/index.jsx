@@ -1,139 +1,81 @@
-import React, { Component } from 'react'
-import Particles from 'react-particles-js'
+import React, { Component } from 'react';
+import Particles from 'react-particles-js';
+import { Link } from 'react-router';
+import particlesProps from './particleProps.js';
+import './index.less';
+import Unsplash from 'unsplash-js';
 
-import { Link } from 'react-router'
-
-import './index.less'
+const unsplash = new Unsplash({
+  applicationId: 'f8b303ea98159bfa3b94f81308eec8dc020f89bcd898f8502f41e6b1bbabd40d',
+  secret: '532d6e0f6979bdd3d8c875ad55d2300280b94f3edc27b74ac311eb44f6b414bc',
+  callbackUrl: 'urn:ietf:wg:oauth:2.0:oob'
+});
 
 export default class Index extends Component {
-  render() {
-    const particlesProps = {
-      "particles": {
-        "number": {
-          "value": 400,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#0DA7EE"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          },
-          "image": {
-            "src": "img/github.svg",
-            "width": 100,
-            "height": 100
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 10,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": false,
-          "distance": 500,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 2
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "bottom",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "bubble"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 0.5
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 4,
-            "duration": 0.3,
-            "opacity": 1,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgArr: []
+    };
+  }
+  componentDidMount() {
+    this.getImage();
+    console.log(unsplash)
+  }
+  getImage () {
+    const width = 600;
+    const height = 600;
+    let imgLength = 3;
+    let imgArr = [];
+    do {
+      const imgSrc = `https://unsplash.it/${width}/${height}?random`;
+      imgArr.push(imgSrc);
+      imgLength--;
     }
-
+    while(imgLength > 0);
+    this.setState({
+      imgArr
+    });
+  }
+  render () {
     return (
       <div>
         <div className="btn btn-default">
-          <a href="/blog">博客</a>
+          <a href="/blog">Story</a>
         </div>
-        <div className="btn btn-default btn-block">
-          <Link to="/hello">网站</Link>
+        <div className="btn btn-default">
+          <Link to="/hello">Mill</Link>
         </div>
-        <div>
-          <Particles
-            width='100%'
-            height='100%'
-            params={particlesProps}
-          />
+        <div id="carousel-example-generic" className="center-div carousel slide" data-ride="carousel">
+          <ol className="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+          <div style={{borderRadius: '50%'}} className="carousel-inner">
+            {this.state.imgArr.map((item, index) => (
+              <div key={index} className={index === 0 ? 'item active' : 'item'}>
+                <img src={item} alt="..." />
+                <div className="carousel-caption"> ... </div>
+              </div>
+            ))} 
+          </div>
+          <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
         </div>
+        <Particles
+          style={{position: 'absolute', left: 0, top: 0, zIndex: -1}}
+          width='100%'
+          height='100%'
+          params={particlesProps}
+        />
       </div>
-    )
+    );
   }
 }

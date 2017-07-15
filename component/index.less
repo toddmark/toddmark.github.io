@@ -1,44 +1,58 @@
-  .animation {
-      color: #fff;
-      background: linear-gradient(90deg, #28e0b0, #c328e0, #28a1e0, #e0286b) center / cover;
-      background-size: 800% 800%;
-      -webkit-animation: AnimationName 30s ease infinite;
-      -moz-animation: AnimationName 30s ease infinite;
-      animation: AnimationName 30s ease infinite;
-  }
+.center-div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    background-color: #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+}
 
-  @-webkit-keyframes AnimationName {
-      0% {
-          background-position: 0% 50%
-      }
-      50% {
-          background-position: 100% 50%
-      }
-      100% {
-          background-position: 0% 50%
-      }
-  }
+.animation {
+    color: #fff;
+    background: linear-gradient(90deg, #28e0b0, #c328e0, #28a1e0, #e0286b) center / cover;
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
 
-  @-moz-keyframes AnimationName {
-      0% {
-          background-position: 0% 50%
-      }
-      50% {
-          background-position: 100% 50%
-      }
-      100% {
-          background-position: 0% 50%
-      }
-  }
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
 
-  @keyframes AnimationName {
-      0% {
-          background-position: 0% 50%
-      }
-      50% {
-          background-position: 100% 50%
-      }
-      100% {
-          background-position: 0% 50%
-      }
-  }
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}

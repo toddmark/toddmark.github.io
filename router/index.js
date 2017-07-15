@@ -1,14 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { Router, Route, hashHistory } from 'react-router'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 
-import Hello from '../component/hello.jsx'
-import About from '../component/about.jsx'
-import Sandbox from '../component/sandbox/index.jsx'
-import BinaryTree from '../component/sandbox/binaryTree'
-import Index from '../component/index.jsx'
+import Hello from '../component/hello.jsx';
+import About from '../component/about.jsx';
+import Sandbox from '../component/sandbox/index.jsx';
+import BinaryTree from '../component/sandbox/binaryTree';
+import Index from '../component/index.jsx';
 
 class Root extends Component{
   render() {
@@ -21,8 +21,8 @@ class Root extends Component{
           <Route path="binaryTree" component={BinaryTree}/>
         </Route>
       </Router>
-    )
+    );
   }
 }
 
-export default Root
+export default Root;
