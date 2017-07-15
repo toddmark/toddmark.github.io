@@ -17,10 +17,10 @@ export default class Index extends Component {
           }
         },
         "color": {
-          "value": "#fff"
+          "value": "#0DA7EE"
         },
         "shape": {
-          "type": "star",
+          "type": "circle",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -64,7 +64,7 @@ export default class Index extends Component {
         "move": {
           "enable": true,
           "speed": 6,
-          "direction": "top",
+          "direction": "bottom",
           "random": false,
           "straight": false,
           "out_mode": "out",
@@ -117,17 +117,17 @@ export default class Index extends Component {
       },
       "retina_detect": true
     }
+
     return (
       <div>
-        <div className="btn btn-default btn-block">
+        <div className="btn btn-default">
           <a href="/blog">博客</a>
         </div>
         <div className="btn btn-default btn-block">
           <Link to="/hello">网站</Link>
         </div>
-        <div className="animation">
+        <div>
           <Particles
-            className="animation"
             width='100%'
             height='100%'
             params={particlesProps}
