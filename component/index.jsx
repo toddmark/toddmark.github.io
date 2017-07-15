@@ -21,7 +21,7 @@ export default class Index extends Component {
   componentDidMount() {
     this.getImage();
   }
-  getImage () {
+  getImage() {
     const width = 600;
     const height = 600;
     let imgLength = 3;
@@ -31,12 +31,12 @@ export default class Index extends Component {
       imgArr.push(imgSrc);
       imgLength--;
     }
-    while(imgLength > 0);
+    while (imgLength > 0);
     this.setState({
       imgArr
     });
   }
-  render () {
+  render() {
     return (
       <div>
         <div className="btn btn-default">
@@ -45,31 +45,34 @@ export default class Index extends Component {
         <div className="btn btn-default">
           <Link to="/hello">Mill</Link>
         </div>
-        <div id="carousel-example-generic" className="center-div carousel slide" data-ride="carousel">
-          <ol className="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-          <div style={{borderRadius: '50%'}} className="carousel-inner">
-            {this.state.imgArr.map((item, index) => (
-              <div key={index} className={index === 0 ? 'item active' : 'item'}>
-                <img src={item} alt="..." />
-                <div className="carousel-caption"> ... </div>
-              </div>
-            ))} 
+        <div className="flex-parent">
+          <div id="carousel-example-generic" className="flex-center-div carousel slide" data-ride="carousel">
+            <ol className="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div style={{ borderRadius: '50%' }} className="carousel-inner">
+              {this.state.imgArr.map((item, index) => (
+                <div key={index} className={index === 0 ? 'item active' : 'item'}>
+                  <img src={item} alt="..." />
+                  <div className="carousel-caption"> ... </div>
+                </div>
+              ))}
+            </div>
+            <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span className="sr-only">Previous</span>
+            </a>
+            <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span className="sr-only">Next</span>
+            </a>
           </div>
-          <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-          </a>
+
         </div>
         <Particles
-          style={{position: 'absolute', left: 0, top: 0, zIndex: -1}}
+          style={{ position: 'absolute', left: 0, top: 0, zIndex: -2 }}
           width='100%'
           height='100%'
           params={particlesProps}
