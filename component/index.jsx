@@ -20,7 +20,6 @@ export default class Index extends Component {
   }
   componentDidMount() {
     this.getImage();
-    console.log(unsplash)
   }
   getImage () {
     const width = 600;
@@ -28,7 +27,7 @@ export default class Index extends Component {
     let imgLength = 3;
     let imgArr = [];
     do {
-      const imgSrc = `https://unsplash.it/${width}/${height}?random`;
+      const imgSrc = `https://unsplash.it/${width}/${height}/?random`;
       imgArr.push(imgSrc);
       imgLength--;
     }
