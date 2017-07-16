@@ -14,10 +14,10 @@ const htmlsMap = [
     template: 'd3',
     chunks: ['vendor', 'd3']
   }
-]
+];
 
 const htmlFiles = (function() {
-  let result = []
+  let result = [];
   htmlsMap.map((item) => {
     result.push(
       new HtmlWebpackPlugin({
@@ -25,12 +25,12 @@ const htmlFiles = (function() {
         chunks: item.chunks,
         filename: `${item.template}.html`
       })
-     )
-  })
-  return result
-}())
+    );
+  });
+  return result;
+}());
 
-const commonJS = ['jquery', 'bootstrap']
+const commonJS = ['jquery', 'bootstrap'];
 module.exports = {
   entry: {
     vendor: commonJS,
@@ -40,7 +40,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve('build'),
-    publicPath: isDev ? '/' : `./`,
+    publicPath: isDev ? '/' : './',
     filename: '[name]-[hash].js'
   },
   // externals: {
@@ -49,54 +49,54 @@ module.exports = {
   // },
   module: {
     rules: [{
-        test: /\.html$/,
-        loader: 'html-loader'
-      }, {
-        test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader"
-      }, {
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
-      }, {
-        test: /\.(eot|woff|ttf|eot|woff2)$/, loader: "file-loader"
-      },{
-        test: /\.js$/,
-        loader: 'imports-loader?define=>false'
-      }, {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader']
-      }, {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
-        loader: "file-loader?name=img-[sha512:hash:base64:7].[ext]"
-      },{
-        test: /bootstrap.+\.(jsx|js)$/, loader: 'imports-loader?jQuery=jquery,$=jquery,this=>window'
-      }
+      test: /\.html$/,
+      loader: 'html-loader'
+    }, {
+      test: /\.less$/,
+      loader: 'style-loader!css-loader!less-loader'
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    }, {
+      test: /\.(eot|woff|ttf|eot|woff2)$/, loader: 'file-loader'
+    },{
+      test: /\.js$/,
+      loader: 'imports-loader?define=>false'
+    }, {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loaders: ['babel-loader']
+    }, {
+      test: /.*\.(gif|png|jpe?g|svg)$/i,
+      loader: 'file-loader?name=img-[sha512:hash:base64:7].[ext]'
+    },{
+      test: /bootstrap.+\.(jsx|js)$/, loader: 'imports-loader?jQuery=jquery,$=jquery,this=>window'
+    }
     ]
   },
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"})
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'})
   ].concat( htmlFiles)
-  .concat(
-    isDev ?
-    // 开发环境
-    [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-    ]
-     :
-    // 生产环境
-    [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production')
-        }
-      })
-    ]
-  )
-}
+    .concat(
+      isDev ?
+        // 开发环境
+        [
+          new webpack.HotModuleReplacementPlugin(),
+          new webpack.NamedModulesPlugin()
+        ]
+        :
+      // 生产环境
+        [
+          new webpack.optimize.UglifyJsPlugin({
+            compress: {
+              warnings: false
+            }
+          }),
+          new webpack.DefinePlugin({
+            'process.env': {
+              NODE_ENV: JSON.stringify('production')
+            }
+          })
+        ]
+    )
+};

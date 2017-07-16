@@ -52,10 +52,10 @@ export default class Index extends Component {
               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
-            <div style={{ borderRadius: '50%' }} className="carousel-inner">
+            <div className="carousel-inner">
               {this.state.imgArr.map((item, index) => (
                 <div key={index} className={index === 0 ? 'item active' : 'item'}>
-                  <img src={item} alt="..." />
+                  <img className="img" src={item} alt="..." />
                   <div className="carousel-caption"> ... </div>
                 </div>
               ))}
