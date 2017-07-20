@@ -50,7 +50,7 @@ export default class Index extends Component {
           <Link to="/hello">Mill</Link>
         </div>
         <div className="flex-parent">
-          Carousel imgArr={this.state.imgArr} />  
+          <Carousel imgArr={this.state.imgArr} />  
         </div>
         <Particles
           style={{ position: 'absolute', left: 0, top: 0, zIndex: -2 }}
