@@ -21,7 +21,7 @@ const htmlFiles = (function() {
   htmlsMap.map((item) => {
     result.push(
       new HtmlWebpackPlugin({
-        template: `./template/${item.template}.html`,
+        template: `./src/template/${item.template}.html`,
         chunks: item.chunks,
         filename: `${item.template}.html`
       })
@@ -34,8 +34,8 @@ const commonJS = ['jquery', 'bootstrap'];
 module.exports = {
   entry: {
     vendor: commonJS,
-    index: ['./template/index.js'],
-    d3: ['./template/d3.js']
+    index: ['./src/template/index.js'],
+    d3: ['./src/template/d3.js']
   },
   devtool: 'source-map',
   output: {
