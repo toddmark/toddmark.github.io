@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -9,9 +10,9 @@ const render = () => {
     <AppContainer>
       <RootContainer />
     </AppContainer>
-    ), document.getElementById('app')
+  ), document.getElementById('app')
   );
-}
+};
 
 render();
 
