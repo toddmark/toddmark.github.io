@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import particlesProps from './particleProps.js';
 import './index.less';
-import Unsplash from 'unsplash-js';
 
 // utility
 // import Carousel from './utility/carousel.jsx';
