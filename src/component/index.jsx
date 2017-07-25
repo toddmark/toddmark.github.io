@@ -25,7 +25,7 @@ export default class Index extends Component {
           <Jumbotron content={{ title: 'Welcome! Visitors!' }} />
         </div>
         <Particles
-          style={{ position: 'absolute', left: 0, top: 0, zIndex: -2 }}
+          style={{ position: 'absolute', left: 0, top: 0, zIndex: -99 }}
           width='100%'
           height='100%'
           params={particlesProps}
