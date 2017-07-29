@@ -33,7 +33,7 @@ export default class Nav extends Component{
                     <li className="divider"></li>
                     <li><a href="#">Separated link</a></li>
                     <li className="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a href="/redux-demo">Redux-demo</a></li>
                   </ul>
                 </li>
                 <li className="">
