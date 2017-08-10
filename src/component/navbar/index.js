@@ -4,6 +4,9 @@ import { Link } from "react-router";
 
 
 export default class Nav extends Component{
+  componentWillMount() {
+    console.log(window.location.hash)
+  }
   render() {
     return(
       <div>
@@ -25,6 +28,12 @@ export default class Nav extends Component{
               <ul className="nav navbar-nav">
                 <li className="active">
                   <Link to="/">Home</Link>
+                </li>
+                <li className="">
+                  <Link to="/hello">Hello</Link>
+                </li>
+                <li>
+                  <Link to="/game">Game</Link>
                 </li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sandbox <span className="caret"></span></a>
