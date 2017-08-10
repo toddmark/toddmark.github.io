@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import { Router, Route, Link } from 'react-router'
+// eslint-disable-next-line no-unused-vars
+import React, {Component} from "react";
+import { Link } from "react-router";
 
 
 export default class Nav extends Component{
@@ -16,7 +17,7 @@ export default class Nav extends Component{
                 <span className="icon-bar"></span>
               </button>
               <div className="navbar-brand">
-                <img style={{width: 20}} src={require('../img/witcher.jpeg')} alt=""/>
+                <img style={{width: 20}} src={require("../img/witcher.jpeg")} alt=""/>
               </div>
             </div>
 
@@ -33,7 +34,7 @@ export default class Nav extends Component{
                     <li className="divider"></li>
                     <li><a href="#">Separated link</a></li>
                     <li className="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a href="/redux-demo">Redux-demo</a></li>
                   </ul>
                 </li>
                 <li className="">
@@ -53,6 +54,6 @@ export default class Nav extends Component{
         </nav>
 
       </div>
-    )
+    );
   }
 }

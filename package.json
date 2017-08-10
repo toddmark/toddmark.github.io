@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf build && webpack --progress --color",
     "release": "npm run build && git add . && git commit -m \"/****** release ******/\" && git push ",
-    "dev": "cross-env NODE_ENV=development node dev-server.js"
+    "start": "cross-env NODE_ENV=development node dev-server.js"
   },
   "repository": {
     "type": "git",
