@@ -9,7 +9,7 @@ import About from "../component/about.jsx";
 import Sandbox from "../component/sandbox/index.jsx";
 import BinaryTree from "../component/sandbox/binaryTree";
 import Index from "../component/index.jsx";
-import game from "../component/game.jsx";
+import game from "../component/game/game.jsx";
 
 class Root extends Component{
   render() {
