@@ -4,53 +4,98 @@ import Paddle from "./paddle.js";
 import React, { Component } from "react";
 import Nav from "../navbar";
 
+function Stage() {
+  const g = {
+    actions: {},
+    keydowns: {},
+  };
+  const canvas = document.getElementById("canvas");
+  const context = canvas.getContext("2d");
+  g.canvas = canvas;
+  g.context = context;
+  //  draw
+  g.drawImage = function(img) {
+    g.context.drawImage(img.img, img.x, img.y);
+  }
+  // events
+  window.addEventListener("keydown",(event) =>{
+    g.keydowns[event.key] = true;
+  });
+  window.addEventListener("keyup",(event) =>{
+    g.keydowns[event.key] = false;
+  });
+
+  // register
+  g.actionRegister = function(key, callback) {
+    g.actions[key] = callback;
+  };
+
+  // timer
+  setInterval(() => {
+    // events 
+    const actions = Object.keys(g.actions);
+    for (let i = 0;  i < actions.length; i++) {
+      let key = actions[i];
+      if (g.keydowns[key])  {
+        g.actions[key]();
+      }
+    }
+    // update
+    g.update();
+    // clear
+    g.context.clearRect(0, 0, g.canvas.width, g.canvas.height);
+    // draw
+    g.draw();
+  }, 1000 / 30);
+
+  return g;
+}
+
 class Game extends Component {
   componentDidMount() {
-    const canvas = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
     const paddle = Paddle(require("../img/50.jpg"));
+    const stage = Stage();
+
     paddle.img.onload = function () {
-      context.drawImage(paddle.img, paddle.x, paddle.y);
+      stage.context.drawImage(paddle.img, paddle.x, paddle.y);
     };
-
-    this.windowKeyEvent(context, canvas, paddle);
-  }
-
-  windowKeyEvent(context, canvas, paddle) {
-    let leftDown = false;
-    let rightDown = false;
-    setInterval(() => {
-      if (leftDown) {
-        paddle.x -= paddle.speed;
-      }
-      if (rightDown) {
-        paddle.x += paddle.speed;
-      }
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(paddle.img, paddle.x, paddle.y);
-    }, 1000/30);
-    window.addEventListener("keydown", function (e) {
-      let k = e.key;
-      switch (k) {
-      case "a":
-        leftDown = true;
-        break;
-      case "d":
-        rightDown = true;
-        break;
-      }
+    // let leftDown = false;
+    // let rightDown = false;
+    stage.update = function () {
+      
+    };
+    stage.actionRegister("a", function() {
+      paddle.moveLeft();
     });
-    window.addEventListener("keyup", function (e) {
-      let k = e.key;
-      switch (k) {
-      case "a":
-        leftDown = false;
-        break;
-      case "d":
-        rightDown = false;
-        break;
-      }
+    stage.actionRegister("d", function() {
+      paddle.moveRight();
     });
+    stage.draw = function () {
+      stage.context.drawImage(paddle.img, paddle.x, paddle.y);
+    };
+    // window.addEventListener("keydown", function (e) {
+    //   let k = e.key;
+    //   switch (k) {
+    //     case "a":
+    //       leftDown = true;
+    //       break;
+    //     case "d":
+    //       rightDown = true;
+    //       break;
+    //   }
+    // });
+    // window.addEventListener("keyup", function (e) {
+    //   let k = e.key;
+    //   switch (k) {
+    //     case "a":
+    //       leftDown = false;
+    //       break;
+    //     case "d":
+    //       rightDown = false;
+    //       break;
+    //   }
+    // });
+
   }
 
   render() {

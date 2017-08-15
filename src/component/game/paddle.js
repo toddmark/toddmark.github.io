@@ -9,9 +9,11 @@ function Paddle (path) {
   };
 
   paddle.moveLeft = () => {
+    paddle.x -= paddle.speed;
   };
 
   paddle.moveRight = () => {
+    paddle.x += paddle.speed;
   };
 
 
