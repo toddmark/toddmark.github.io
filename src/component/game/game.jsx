@@ -1,4 +1,4 @@
-import Paddle from "./paddle.js";
+import {Paddle, Ball} from "./paddle.js";
 
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from "react";
@@ -54,15 +54,16 @@ function Stage() {
 class Game extends Component {
   componentDidMount() {
     const paddle = Paddle(require("../img/50.jpg"));
+    const ball = Ball(require("./ball.png"));
+
     const stage = Stage();
 
     paddle.img.onload = function () {
-      stage.context.drawImage(paddle.img, paddle.x, paddle.y);
+      stage.drawImage(paddle);
     };
-    // let leftDown = false;
-    // let rightDown = false;
+
     stage.update = function () {
-      
+      ball.move(); 
     };
     stage.actionRegister("a", function() {
       paddle.moveLeft();
@@ -70,31 +71,13 @@ class Game extends Component {
     stage.actionRegister("d", function() {
       paddle.moveRight();
     });
+    stage.actionRegister(" ", function() {
+      ball.fire();
+    });
     stage.draw = function () {
-      stage.context.drawImage(paddle.img, paddle.x, paddle.y);
+      stage.drawImage(paddle);
+      stage.drawImage(ball);
     };
-    // window.addEventListener("keydown", function (e) {
-    //   let k = e.key;
-    //   switch (k) {
-    //     case "a":
-    //       leftDown = true;
-    //       break;
-    //     case "d":
-    //       rightDown = true;
-    //       break;
-    //   }
-    // });
-    // window.addEventListener("keyup", function (e) {
-    //   let k = e.key;
-    //   switch (k) {
-    //     case "a":
-    //       leftDown = false;
-    //       break;
-    //     case "d":
-    //       rightDown = false;
-    //       break;
-    //   }
-    // });
 
   }
 
