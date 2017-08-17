@@ -16,7 +16,7 @@ function Stage() {
   //  draw
   g.drawImage = function(img) {
     g.context.drawImage(img.img, img.x, img.y);
-  }
+  };
   // events
   window.addEventListener("keydown",(event) =>{
     g.keydowns[event.key] = true;
