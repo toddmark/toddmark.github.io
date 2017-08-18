@@ -5,7 +5,7 @@ function Paddle (path) {
     img: img,
     x: 0,
     y: 220,
-    speed: 5,
+    speed: 15,
   };
 
   paddle.moveLeft = () => {
@@ -48,9 +48,9 @@ function Ball (path) {
   };
 
   _o.collide = function(obj) {
-    if (_o.x > obj.x && _o.x < (obj.x + 400)){
-      console.log('collide', obj.x, obj.y);
-      // 进入挡板宽度范围
+    // 进入挡板宽度范围
+    // paddle: obj,  ball: _o
+    if (_o.x >= obj.x && (_o.x + _o.img.width) < (obj.x + obj.img.width)){
       if (_o.y + _o.img.height >= obj.y) {
         _o.speedY = -_o.speedY;
       }
