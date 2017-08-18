@@ -32,10 +32,10 @@ function Ball (path) {
 
   _o.move = function() {
     if (_o.fired) {
-      if (_o.x < 0 || _o.x > 400 ) {
+      if (_o.x < 0 || (_o.x + _o.img.width) > 400 ) {
         _o.speedX = -_o.speedX;
       }
-      if (_o.y < 0 || _o.y > 300 ) {
+      if (_o.y < 0 || (_o.y + _o.img.height) > 300 ) {
         _o.speedY = -_o.speedY;
       }
       // move
@@ -45,7 +45,17 @@ function Ball (path) {
   };
   _o.fire = function() {
     _o.fired = true;
-  }
+  };
+
+  _o.collide = function(obj) {
+    if (_o.x > obj.x && _o.x < (obj.x + 400)){
+      console.log('collide', obj.x, obj.y);
+      // 进入挡板宽度范围
+      if (_o.y + _o.img.height >= obj.y) {
+        _o.speedY = -_o.speedY;
+      }
+    }
+  };
 
   return _o;
 }
