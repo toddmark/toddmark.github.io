@@ -37,13 +37,13 @@ export default class RandomSelect extends Component {
         this.play = true;
       }
       if (this.play) {
-        if (currentIndex === this.state.divs.length) {
-          currentIndex = 0;
+        if (currentIndex === this.state.divs.length - 1) {
+          currentIndex = -1;
         }
+        currentIndex++;
         this.setState({
           currentIndex
         });
-        currentIndex++;
       }
     }, time);
   }
