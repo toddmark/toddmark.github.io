@@ -5,7 +5,6 @@ import { Link } from "react-router";
 
 export default class Nav extends Component{
   componentWillMount() {
-    console.log(window.location.hash)
   }
   render() {
     return(
@@ -40,6 +39,7 @@ export default class Nav extends Component{
                   <ul className="dropdown-menu" role="menu">
                     <li><Link to="/sandbox">Index</Link></li>
                     <li><Link to="/sandbox/binarytree">binarytree</Link></li>
+                    <li><Link to="/sandbox/randomSelect">randomSelect</Link></li>
                     <li className="divider"></li>
                     <li><a href="#">Separated link</a></li>
                     <li className="divider"></li>
