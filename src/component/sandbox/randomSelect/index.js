@@ -23,6 +23,7 @@ export default class RandomSelect extends Component {
   }
   calc() {
     if (this.play) {
+      console.log(this.play)
       return;
     }
     const time = 200;
@@ -36,21 +37,19 @@ export default class RandomSelect extends Component {
       } else {
         this.play = true;
       }
-      if (this.play) {
-        if (currentIndex === this.state.divs.length - 1) {
-          currentIndex = -1;
-        }
-        currentIndex++;
-        this.setState({
-          currentIndex
-        });
+      if (currentIndex === this.state.divs.length - 1) {
+        currentIndex = -1;
       }
+      currentIndex++;
+      this.setState({
+        currentIndex
+      });
     }, time);
   }
 
   render() {
-    const base = { display: "inline-block", width: 50, height: 50, fontSize: 20, textAlign: "center", lineHeight: "50px"};
-    const style = Object.assign({}, base, {background: "#369", border: "1px solid #fff", color: "#fff"});
+    const base = { display: "inline-block", width: 50, height: 50, fontSize: 20, textAlign: "center", lineHeight: "50px" };
+    const style = Object.assign({}, base, { background: "#369", border: "1px solid #fff", color: "#fff" });
     const styleChoosed = Object.assign({}, base, { background: "#fff", border: "1px solid #369", color: "#369", fontSize: 20, textAlign: "center" });
     return (
       <div>
@@ -59,9 +58,9 @@ export default class RandomSelect extends Component {
           {this.state.divs.map((item, index) => {
             return (<div key={index} style={index === this.state.currentIndex ? styleChoosed : style}>{item}</div>);
           })}
-          <hr/>
+          <hr />
           <button onClick={this.calc}>Select</button>
-          {this.state.currentIndex} 
+          {this.state.currentIndex}
         </div>
       </div>
     );
