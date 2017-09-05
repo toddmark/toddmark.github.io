@@ -48,18 +48,20 @@ export default class RandomSelect extends Component {
   }
 
   render() {
-    const base = { display: "inline-block", width: 50, height: 50, fontSize: 20, textAlign: "center", lineHeight: "50px" };
+    const base = { display: "inline-block", width: 150, height: 60, fontSize: 20, textAlign: "center", lineHeight: "50px" };
     const style = Object.assign({}, base, { background: "#369", border: "1px solid #fff", color: "#fff" });
     const styleChoosed = Object.assign({}, base, { background: "#fff", border: "1px solid #369", color: "#369", fontSize: 20, textAlign: "center" });
     return (
       <div>
-        <Nav />
-        <div style={{ width: 600, margin: "0 auto" }}>
+        <div style={{display: "none"}}>
+          <Nav />
+        </div>
+        <div style={{ width: 600, margin: "20px auto" }}>
           {this.state.divs.map((item, index) => {
             return (<div key={index} style={index === this.state.currentIndex ? styleChoosed : style}>{item}</div>);
           })}
           <hr />
-          <button onClick={this.calc}>Select</button>
+          <button onClick={this.calc}>Roll</button>
           {this.state.currentIndex}
         </div>
       </div>
