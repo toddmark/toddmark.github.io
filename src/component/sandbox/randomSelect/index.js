@@ -2,12 +2,13 @@
 import React, { Component } from "react";
 
 import Nav from "../../navbar";
+import "./indes.less";
 
 export default class RandomSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      divs: "ezbuyisthebest".split(""),
+      divs: ["王麟", "叶俊钦", "温嘉成", "任青松", "肖嘉欣", "陈林泳", "陈欢", "潘凌哲", "胡筱敏", "吴学谦", "葛婷", "易全文",],
       currentIndex: 0
     };
     this.play = false;
@@ -52,11 +53,11 @@ export default class RandomSelect extends Component {
     const style = Object.assign({}, base, { background: "#369", border: "1px solid #fff", color: "#fff" });
     const styleChoosed = Object.assign({}, base, { background: "#fff", border: "1px solid #369", color: "#369", fontSize: 20, textAlign: "center" });
     return (
-      <div>
+      <div className="bg">
         <div style={{display: "none"}}>
           <Nav />
         </div>
-        <div style={{ width: 600, margin: "20px auto" }}>
+        <div className="print-select" style={{ width: 600, margin: "20px auto" }}>
           {this.state.divs.map((item, index) => {
             return (<div key={index} style={index === this.state.currentIndex ? styleChoosed : style}>{item}</div>);
           })}
@@ -64,6 +65,9 @@ export default class RandomSelect extends Component {
           <button onClick={this.calc}>Roll</button>
           {this.state.currentIndex}
         </div>
+        <page className="A4"></page>
+        <page className="A4"></page>
+        <page className="A4"></page>
       </div>
     );
   }
