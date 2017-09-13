@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 let isDev = false;
 const env = process.env.NODE_ENV;
 isDev = env === "development" ? true : false;
@@ -75,7 +76,8 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"})
+    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
+    new BundleAnalyzerPlugin(),
   ].concat( htmlFiles)
     .concat(
       isDev ?
