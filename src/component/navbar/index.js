@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {Component} from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 
 export default class Nav extends Component{

@@ -22,6 +22,7 @@ const server = new WebpackDevServer(compiler, {
   hot: true,
   publicPath: "/",
   disableHostCheck: true,
+  historyApiFallback: true,
   stats: { 
     colors: true,
     chunks: false
