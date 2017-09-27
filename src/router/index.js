@@ -2,7 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from "react";
-import { Router, Route, hashHistory, IndexRoute } from "react-router";
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 
 import Hello from "../component/hello.jsx";
 import About from "../component/about.jsx";
@@ -18,8 +21,8 @@ import game from "../component/game/game.jsx";
 class Root extends Component{
   render() {
     return (
-      <Router history={hashHistory} >
-        <Route path="/" component={Index} />
+      <Router>
+        <Route exact path="/" component={Index} />
         <Route path="/hello" component={Hello} />
         <Route path="/game" component={game} />
         <Route path="/about" component={About} />
