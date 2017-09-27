@@ -38,7 +38,7 @@ module.exports = {
     index: ["./src/template/index.js"],
     d3: ["./src/template/d3.js"]
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   output: {
     path: path.resolve("build"),
     publicPath: isDev ? "/" : "./",
@@ -87,7 +87,7 @@ module.exports = {
           new webpack.NamedModulesPlugin()
         ]
         :
-      // 生产环境
+        // 生产环境
         [
           new webpack.optimize.UglifyJsPlugin({
             compress: {

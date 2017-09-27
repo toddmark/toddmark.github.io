@@ -10,7 +10,6 @@ const myIp = IP.address();
 Object.keys(config.entry).map((item) => {
   if (item !== 'vendor') {
     config.entry[item].unshift(
-      'react-hot-loader/patch',
       `webpack-dev-server/client?http://${myIp}:${port}/`, 
       'webpack/hot/dev-server'
     );
