@@ -77,14 +77,14 @@ module.exports = {
   },
   plugins:[
     new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
-    new BundleAnalyzerPlugin(),
   ].concat( htmlFiles)
     .concat(
       isDev ?
         // 开发环境
         [
           new webpack.HotModuleReplacementPlugin(),
-          new webpack.NamedModulesPlugin()
+          new webpack.NamedModulesPlugin(),
+          new BundleAnalyzerPlugin(),
         ]
         :
         // 生产环境

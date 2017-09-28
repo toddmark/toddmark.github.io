@@ -12,7 +12,7 @@ export default class Hello extends Component {
 
   constructor(props) {
     super(props);
-    this.title = "what you see is what you get, is that true? See, Not ture. Can not figure it. I will crazy about it.";
+    this.title = "D3 helps you bring data to life using SVG, Canvas and HTML. D3 combines powerful visualization and interaction techniques with a data-driven approach to DOM manipulation, giving you the full capabilities of modern browsers and the freedom to design the right visual interface for your data.";
   }
 
   componentDidMount() {

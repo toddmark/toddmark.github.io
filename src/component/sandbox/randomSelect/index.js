@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import Nav from "../../navbar";
-import "./indes.less";
+import "./index.less";
 
 export default class RandomSelect extends Component {
   constructor(props) {

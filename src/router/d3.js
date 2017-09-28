@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// eslint-disable-next-line no-unused-vars
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
-import { Router, Route, Link, hashHistory, IndexRoute } from "react-router-dom";
+// import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, } from "react-router-dom";
 
 import Minecraft from "../component/d3/mincraft";
 
@@ -10,9 +11,9 @@ import Minecraft from "../component/d3/mincraft";
 class D3 extends Component{
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Route path="/" component={Minecraft}></Route>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
