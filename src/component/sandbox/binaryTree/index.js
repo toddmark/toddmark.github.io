@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from "react";
-import d3 from "d3";
 import rd3 from "react-d3-library";
+const RD3Component = rd3.Component;
 import { node, regenerate } from "./binaryTreeNode.js";
 import "./binaryTree.less";
 import Nav from "../../navbar";
@@ -46,7 +47,6 @@ export default class BinaryTree extends Component{
   }
 
   render() {
-    const RD3Component = rd3.Component;
     return (
       <div>
         <Nav />

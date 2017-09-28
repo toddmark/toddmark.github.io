@@ -38,7 +38,7 @@ module.exports = {
     index: ["./src/template/index.js"],
     d3: ["./src/template/d3.js"]
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   output: {
     path: path.resolve("build"),
     publicPath: isDev ? "/" : "./",
@@ -77,17 +77,17 @@ module.exports = {
   },
   plugins:[
     new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
-    new BundleAnalyzerPlugin(),
   ].concat( htmlFiles)
     .concat(
       isDev ?
         // 开发环境
         [
           new webpack.HotModuleReplacementPlugin(),
-          new webpack.NamedModulesPlugin()
+          new webpack.NamedModulesPlugin(),
+          new BundleAnalyzerPlugin(),
         ]
         :
-      // 生产环境
+        // 生产环境
         [
           new webpack.optimize.UglifyJsPlugin({
             compress: {

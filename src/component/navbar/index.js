@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {Component} from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 
 export default class Nav extends Component{
@@ -53,7 +53,7 @@ export default class Nav extends Component{
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">d3.js Demo <span className="caret"></span></a>
                   <ul className="dropdown-menu" role="menu">
                     <li>
-                      <a href="./d3.html">Home</a>
+                      <a href="/d3.html">Home</a>
                     </li>
                   </ul>
                 </li>

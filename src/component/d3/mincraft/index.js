@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import d3 from 'd3';
 import rd3 from 'react-d3-library';
 import { node, update } from './mincraftNode.js';
 
