@@ -12,7 +12,7 @@ export default class Hello extends Component {
 
   constructor(props) {
     super(props);
-    this.title = "D3 helps you bring data to life using SVG, Canvas and HTML. D3 combines powerful visualization and interaction techniques with a data-driven approach to DOM manipulation, giving you the full capabilities of modern browsers and the freedom to design the right visual interface for your data.";
+    this.title = "JavaScript was initially created to make webpages alive. The programs in this language are called scripts. They can be written right in the HTML and execute automatically as the page loads. Scripts are provided and executed as a plain text. They don’t need a special preparation or a compilation to run.";
   }
 
   componentDidMount() {

@@ -9,16 +9,16 @@ import {
   HashRouter as Router,
 } from "react-router-dom";
 
-// import Hello from "../component/hello.jsx";
-// import About from "../component/about.jsx";
+import Hello from "../component/hello.jsx";
+import About from "../component/about.jsx";
 
 // sandbox
-// import Sandbox from "../component/sandbox/index.jsx";
-// import BinaryTree from "../component/sandbox/binaryTree";
-// import RandomSelect from "../component/sandbox/randomSelect";
+import Sandbox from "../component/sandbox/index.jsx";
+import BinaryTree from "../component/sandbox/binaryTree";
+import RandomSelect from "../component/sandbox/randomSelect";
 
 import Index from "../component/index.jsx";
-// import game from "../component/game/game.jsx";
+import game from "../component/game/game.jsx";
 
 class Root extends Component {
   render() {
@@ -30,13 +30,9 @@ class Root extends Component {
             <Route path="/hello" component={Hello} />
             <Route path="/game" component={game} />
             <Route path="/about" component={About} />
-            <Route path="/sandbox">
-              <Switch>
-                <Route exact path="/sandbox" component={Sandbox} />
-                <Route path="/sandbox/binaryTree" component={BinaryTree}/>
-                <Route path="/sandbox/randomSelect" component={RandomSelect} />
-              </Switch>
-            </Route>
+            <Route exact path="/sandbox" component={Sandbox} />
+            <Route path="/sandbox/binaryTree" component={BinaryTree}/>
+            <Route path="/sandbox/randomSelect" component={RandomSelect} />
           </Switch>
         </Router>
       </div>

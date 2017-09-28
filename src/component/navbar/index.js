@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
 
 export default class Nav extends Component{
   componentWillMount() {
@@ -26,10 +25,11 @@ export default class Nav extends Component{
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
                 <li className="active">
-                  <Link to="/">Home</Link>
+                  <a href="index.html">Home</a>
                 </li>
                 <li className="">
-                  <Link to="/hello">Hello</Link>
+                  {/* <a href="/index.html#/hello">Hello</a> */}
+                  <NavLink to="/hello" activeStyle={{fontSize: 30}}>Hello</NavLink>
                 </li>
                 <li>
                   <Link to="/game">Game</Link>
@@ -41,13 +41,13 @@ export default class Nav extends Component{
                     <li><Link to="/sandbox/binarytree">binarytree</Link></li>
                     <li><Link to="/sandbox/randomSelect">randomSelect</Link></li>
                     <li className="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">Separated Link</a></li>
                     <li className="divider"></li>
                     <li><a href="/redux-demo">Redux-demo</a></li>
                   </ul>
                 </li>
                 <li className="">
-                  <Link to="/about">About</Link>
+                  <a href="/about">About</a>
                 </li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">d3.js Demo <span className="caret"></span></a>
