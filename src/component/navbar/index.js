@@ -24,15 +24,15 @@ export default class Nav extends Component{
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li className="active">
+                <li className="">
                   <a href="index.html">Home</a>
                 </li>
                 <li className="">
                   {/* <a href="/index.html#/hello">Hello</a> */}
-                  <NavLink to="/hello" activeStyle={{fontSize: 30}}>Hello</NavLink>
+                  <NavLink to="/hello" activeStyle={{color: "#fff", background: "#777"}}>Hello</NavLink>
                 </li>
                 <li>
-                  <Link to="/game">Game</Link>
+                  <NavLink to="/game" activeStyle={{color: "#fff", background: "#777"}}>Game</NavLink>
                 </li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sandbox <span className="caret"></span></a>
@@ -47,7 +47,7 @@ export default class Nav extends Component{
                   </ul>
                 </li>
                 <li className="">
-                  <a href="/about">About</a>
+                  <NavLink to="/about" activeStyle={{color: "#fff", background: "#777"}}>About</NavLink>
                 </li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">d3.js Demo <span className="caret"></span></a>
