@@ -42,7 +42,8 @@ module.exports = {
   output: {
     path: path.resolve("build"),
     publicPath: isDev ? "/" : "./",
-    filename: "[name]-[hash].js"
+    filename: "dll.[name]_[hash].js",
+    library: "[name]_[hash]_library"
   },
   // externals: {
   //   react: 'React',
