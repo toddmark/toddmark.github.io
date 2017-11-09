@@ -42,8 +42,7 @@ module.exports = {
   output: {
     path: path.resolve("build"),
     publicPath: isDev ? "/" : "./",
-    filename: "dll.[name]_[hash].js",
-    library: "[name]_[hash]_library"
+    filename: "[name]-[hash].js"
   },
   // externals: {
   //   react: 'React',
@@ -78,6 +77,10 @@ module.exports = {
   },
   plugins:[
     new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
+    new webpack.DllReferencePlugin({
+      context: ".",
+      manifest: require("./build/bundle.manifest.json"),
+    }),
   ].concat( htmlFiles)
     .concat(
       isDev ?
