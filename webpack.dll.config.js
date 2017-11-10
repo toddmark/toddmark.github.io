@@ -6,21 +6,21 @@ module.exports = {
     bundle: [
       "react",
       "react-dom",
-      "jquery", 
-      "bootstrap"
+      // "jquery", 
+      // "bootstrap"
       //其他库
     ],
   },
   output: {
     path: path.resolve("build"),
-    filename: "[name].js",
+    filename: "[name].dll.js",
     library: "[name]_[chunkhash]_library"
   },
   plugins: [
     new webpack.DllPlugin({
       context: __dirname,
       name: "[name]_[chunkhash]_library",
-      path: path.join(__dirname, "/build/manifest.json"),
+      path: path.join(__dirname, "manifest.json"),
     })
     // new webpack.DllPlugin({
     //   path: "./build/bundle.manifest.json",
