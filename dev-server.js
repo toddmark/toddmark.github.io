@@ -8,7 +8,7 @@ const myIp = IP.address();
 
 // Add hot js for each webpack config entry
 Object.keys(config.entry).map((item) => {
-  if (item !== "vendor") {
+  if (item !== "commons") {
     config.entry[item].unshift(
       "react-hot-loader/patch",
       `webpack-dev-server/client?http://${myIp}:${port}/`, 

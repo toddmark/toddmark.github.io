@@ -9,11 +9,11 @@ console.log(isDev ? "开发环境" : "生产环境");
 const htmlsMap = [
   {
     template: "index",
-    chunks: ["commons", "index"]
+    chunks: ["index"]
   },
   {
     template: "d3",
-    chunks: ["commons", "d3"]
+    chunks: ["d3"]
   }
 ];
 
@@ -33,7 +33,7 @@ const htmlFiles = (function() {
 
 module.exports = {
   entry: {
-    commons: ["jquery", "bootstrap"], 
+    // commons: ["jquery", "bootstrap"], 
     index: ["./src/template/index.js"],
     d3: ["./src/template/d3.js"]
   },
@@ -41,7 +41,7 @@ module.exports = {
   output: {
     path: path.resolve("build"),
     publicPath: isDev ? "/" : "./",
-    filename: "[name]-[chunkhash].js"
+    filename: "[name]-[hash].js"
   },
   module: {
     rules: [{
@@ -71,14 +71,14 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "commons",
-      filename: "[name].js",
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: "commons",
+    //   filename: "[name].js",
+    // }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require("./manifest.json"),
-    })
+    }),
   ].concat( htmlFiles)
     .concat(
       isDev ?

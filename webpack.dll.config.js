@@ -6,8 +6,9 @@ module.exports = {
     bundle: [
       "react",
       "react-dom",
-      // "jquery", 
-      // "bootstrap"
+      "jquery",
+      "bootstrap",
+      "react-d3-library"
       //其他库
     ],
   },
@@ -21,6 +22,10 @@ module.exports = {
       context: __dirname,
       name: "[name]_[chunkhash]_library",
       path: path.join(__dirname, "manifest.json"),
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
     })
     // new webpack.DllPlugin({
     //   path: "./build/bundle.manifest.json",

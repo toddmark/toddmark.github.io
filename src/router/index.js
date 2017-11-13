@@ -12,6 +12,8 @@ import {
 import Hello from "../component/hello.jsx";
 import About from "../component/about.jsx";
 
+import "bootstrap";
+
 // sandbox
 import Sandbox from "../component/sandbox/index.jsx";
 import BinaryTree from "../component/sandbox/binaryTree";
