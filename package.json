@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf build && webpack --progress --color && webpack --config webpack.dll.config.js",
+    "build": "rm -rf build && webpack --config webpack.dll.config.js && webpack --progress --color",
     "release": "npm run build && git add . && git commit -m \"/****** release ******/\" && git push ",
     "start": "cross-env NODE_ENV=development node dev-server.js",
     "dll": "webpack --config webpack.dll.config.js"
