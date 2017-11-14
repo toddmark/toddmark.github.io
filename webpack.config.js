@@ -40,7 +40,7 @@ module.exports = {
   devtool: "eval-source-map",
   output: {
     path: path.resolve("build"),
-    publicPath: isDev ? "/" : "./",
+    publicPath: isDev ? "/build" : "./",
     filename: "[name]-[hash].js"
   },
   module: {
@@ -71,10 +71,6 @@ module.exports = {
     ]
   },
   plugins:[
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: "commons",
-    //   filename: "[name].js",
-    // }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require("./manifest.json"),

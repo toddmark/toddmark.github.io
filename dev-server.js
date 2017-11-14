@@ -20,7 +20,7 @@ const WebpackDevServer = require("webpack-dev-server");
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
   hot: true,
-  publicPath: "/",
+  publicPath: "/build",
   disableHostCheck: true,
   historyApiFallback: true,
   stats: { 

@@ -31,9 +31,5 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     })
-    // new webpack.DllPlugin({
-    //   path: "./build/bundle.manifest.json",
-    //   name: "[name]_library",
-    // })
   ]
 };
