@@ -8,7 +8,10 @@ module.exports = {
       "react-dom",
       "jquery",
       "bootstrap",
-      "react-d3-library"
+      "react-d3-library",
+      "gsap",
+      "scrollmagic",
+      "bootstrap/dist/css/bootstrap.min.css"
       //其他库
     ],
   },
@@ -17,6 +20,7 @@ module.exports = {
     filename: "[name].dll.js",
     library: "[name]_[chunkhash]_library"
   },
+  module: require("./webpack.config").module,
   plugins: [
     new webpack.DllPlugin({
       context: __dirname,
